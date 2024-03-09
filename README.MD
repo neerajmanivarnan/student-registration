@@ -5,4 +5,4 @@
     `javac FileName.java`
 
     `java Filename`
- - Note : Do read the contributing file    
+ - Note : Do read the contributing.md file    
