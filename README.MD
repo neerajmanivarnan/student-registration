@@ -3,5 +3,6 @@
  - First go to the directory where the java file is present 
  - Open the file in desired code editors and in the terminal run the command 
     `javac FileName.java`
+
     `java Filename`
-    
+ - Note : Do read the contributing file    
