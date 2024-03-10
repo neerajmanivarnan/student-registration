@@ -70,6 +70,8 @@ import javax.swing.JTextField;
         semesterList.addItem(7);
         semesterList.addItem(8);
         registerButton = new JButton("Submit");
+        registerButton.addActionListener((e) -> 
+                System.out.println("Submitted"));
         container = getContentPane();
         container.setLayout(null);
         setBounds();
