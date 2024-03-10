@@ -85,11 +85,11 @@ class RegisterFrame extends JFrame implements ActionListener {
     }
 
     public void setBounds() {
-        // Your existing code for setting bounds
+
     }
 
     public void addComponents() {
-        // Your existing code for adding components
+
     }
 
     // Method to handle button click event
