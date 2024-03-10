@@ -9,7 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
- class RegisterFrame extends JFrame {
+
+class RegisterFrame extends JFrame {
     JLabel message;
     JLabel nameLabel, dobLabel, genderLabel, dobFormat;
     JTextField nameField;
@@ -26,12 +27,13 @@ import javax.swing.JTextField;
     JComboBox<Integer> semesterList;
     JButton registerButton;
     Container container;
+
     public RegisterFrame() {
         message = new JLabel("Register a new Student");
         message.setFont(new Font("Courier", Font.BOLD, 20));
         nameLabel = new JLabel("Name");
         nameField = new JTextField();
-        
+
         genderLabel = new JLabel("Gender");
         genderMale = new JRadioButton("Male", true);
         genderFemale = new JRadioButton("Female");
@@ -71,12 +73,13 @@ import javax.swing.JTextField;
         semesterList.addItem(8);
         registerButton = new JButton("Submit");
         container = getContentPane();
-        container.setLayout(null);
+        container.setLayout(new FlowLayout());
+
         setBounds();
         addComponents();
 
-        
     }
+
     public void setBounds() {
         message.setBounds(50, 10, 600, 30);
         nameLabel.setBounds(50, 60, 100, 30);
@@ -100,6 +103,7 @@ import javax.swing.JTextField;
         semesterList.setBounds(130, 510, 200, 30);
         registerButton.setBounds(130, 550, 200, 30);
     }
+
     public void addComponents() {
         container.add(message);
         container.add(nameLabel);
@@ -123,6 +127,7 @@ import javax.swing.JTextField;
         container.add(semesterList);
         container.add(registerButton);
     }
+
     public static void main(String[] args) {
         RegisterFrame frame = new RegisterFrame();
         frame.setTitle("Student Register Form");
