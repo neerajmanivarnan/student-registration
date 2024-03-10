@@ -1,5 +1,7 @@
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -9,7 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
- class RegisterFrame extends JFrame {
+
+class RegisterFrame extends JFrame {
     JLabel message;
     JLabel nameLabel, dobLabel, genderLabel, dobFormat;
     JTextField nameField;
@@ -26,12 +29,13 @@ import javax.swing.JTextField;
     JComboBox<Integer> semesterList;
     JButton registerButton;
     Container container;
+
     public RegisterFrame() {
         message = new JLabel("Register a new Student");
         message.setFont(new Font("Courier", Font.BOLD, 20));
         nameLabel = new JLabel("Name");
         nameField = new JTextField();
-        
+
         genderLabel = new JLabel("Gender");
         genderMale = new JRadioButton("Male", true);
         genderFemale = new JRadioButton("Female");
@@ -74,9 +78,9 @@ import javax.swing.JTextField;
         container.setLayout(null);
         setBounds();
         addComponents();
-
-        
+        addActionListeners();
     }
+
     public void setBounds() {
         message.setBounds(50, 10, 600, 30);
         nameLabel.setBounds(50, 60, 100, 30);
@@ -100,6 +104,7 @@ import javax.swing.JTextField;
         semesterList.setBounds(130, 510, 200, 30);
         registerButton.setBounds(130, 550, 200, 30);
     }
+
     public void addComponents() {
         container.add(message);
         container.add(nameLabel);
@@ -123,6 +128,30 @@ import javax.swing.JTextField;
         container.add(semesterList);
         container.add(registerButton);
     }
+
+    public void addActionListeners() {
+        registerButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Add your code here to handle the button click event
+                // For example, you can validate the form fields and save the data
+                // This code is just an example, replace it with your actual logic
+                String name = nameField.getText();
+                String gender = genderMale.isSelected() ? "Male" : "Female";
+                String mailId = mailIdField.getText();
+                String mobileNo = mobileNoField.getText();
+                // You can continue retrieving other form field values
+
+                // Once you have the data, you can process it further
+                // For now, let's just print the data to the console
+                System.out.println("Name: " + name);
+                System.out.println("Gender: " + gender);
+                System.out.println("Mail Id: " + mailId);
+                System.out.println("Mobile No: " + mobileNo);
+                // Print other form field values as well
+            }
+        });
+    }
+
     public static void main(String[] args) {
         RegisterFrame frame = new RegisterFrame();
         frame.setTitle("Student Register Form");
