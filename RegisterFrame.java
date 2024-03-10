@@ -1,5 +1,8 @@
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -9,7 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
- class RegisterFrame extends JFrame {
+
+class RegisterFrame extends JFrame implements ActionListener {
     JLabel message;
     JLabel nameLabel, dobLabel, genderLabel, dobFormat;
     JTextField nameField;
@@ -26,12 +30,13 @@ import javax.swing.JTextField;
     JComboBox<Integer> semesterList;
     JButton registerButton;
     Container container;
+
     public RegisterFrame() {
         message = new JLabel("Register a new Student");
         message.setFont(new Font("Courier", Font.BOLD, 20));
         nameLabel = new JLabel("Name");
         nameField = new JTextField();
-        
+
         genderLabel = new JLabel("Gender");
         genderMale = new JRadioButton("Male", true);
         genderFemale = new JRadioButton("Female");
@@ -70,59 +75,33 @@ import javax.swing.JTextField;
         semesterList.addItem(7);
         semesterList.addItem(8);
         registerButton = new JButton("Submit");
+        registerButton.addActionListener(this); // Adding ActionListener to the button
         container = getContentPane();
-        container.setLayout(null);
+        container.setLayout(new FlowLayout());
+
         setBounds();
         addComponents();
 
-        
     }
+
     public void setBounds() {
-        message.setBounds(50, 10, 600, 30);
-        nameLabel.setBounds(50, 60, 100, 30);
-        nameField.setBounds(130, 60, 200, 30);
-        genderLabel.setBounds(50, 160, 100, 30);
-        genderMale.setBounds(130, 160, 100, 30);
-        genderFemale.setBounds(240, 160, 100, 30);
-        mailIdLabel.setBounds(50, 210, 100, 30);
-        mailIdField.setBounds(130, 210, 200, 30);
-        mobileNoLabel.setBounds(50, 260, 100, 30);
-        mobileNoField.setBounds(130, 260, 200, 30);
-        passwordLabel.setBounds(50, 310, 100, 30);
-        passwordField.setBounds(130, 310, 200, 30);
-        rePasswordLabel.setBounds(50, 360, 100, 30);
-        rePasswordField.setBounds(130, 360, 200, 30);
-        programLabel.setBounds(50, 410, 100, 30);
-        programList.setBounds(130, 410, 200, 30);
-        branchLabel.setBounds(50, 460, 100, 30);
-        branchList.setBounds(130, 460, 200, 30);
-        semesterLabel.setBounds(50, 510, 100, 30);
-        semesterList.setBounds(130, 510, 200, 30);
-        registerButton.setBounds(130, 550, 200, 30);
+
     }
+
     public void addComponents() {
-        container.add(message);
-        container.add(nameLabel);
-        container.add(nameField);
-        container.add(genderLabel);
-        container.add(genderMale);
-        container.add(genderFemale);
-        container.add(mailIdLabel);
-        container.add(mailIdField);
-        container.add(mobileNoLabel);
-        container.add(mobileNoField);
-        container.add(passwordLabel);
-        container.add(passwordField);
-        container.add(rePasswordLabel);
-        container.add(rePasswordField);
-        container.add(programLabel);
-        container.add(programList);
-        container.add(branchLabel);
-        container.add(branchList);
-        container.add(semesterLabel);
-        container.add(semesterList);
-        container.add(registerButton);
+
     }
+
+    // Method to handle button click event
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == registerButton) {
+
+            String name = nameField.getText();
+            String mailId = mailIdField.getText();
+
+        }
+    }
+
     public static void main(String[] args) {
         RegisterFrame frame = new RegisterFrame();
         frame.setTitle("Student Register Form");
